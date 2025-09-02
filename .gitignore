@@ -1,0 +1,6 @@
+target/
+.idea
+.mvn
+allure-results
+ername or token. Password authentication is not supported for Git operations.
+.allure
