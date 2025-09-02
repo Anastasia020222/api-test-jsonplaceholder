@@ -21,7 +21,7 @@ public class PutPostsTest {
     @Test
     @DisplayName("PUT-запрос. Полное обновление поста с валидными данными")
     public void testUpdatePostSuccessfully() {
-        Post requestPost = createPostWithId2();
+        Post requestPost = createPostWithId(2);
         Response response = service.putPost(requestPost);
 
         responseValidator.assertStatus(response, CODE_200);
@@ -67,7 +67,7 @@ public class PutPostsTest {
     @Test
     @DisplayName("PATCH-запрос. Частичное обновление поста с валидным ID")
     public void testPartialUpdatePost() {
-        Post requestPost = partialUpdatePostTitle();
+        Post requestPost = partialUpdatePostTitle(2);
         Response response = service.pathPost(requestPost);
 
         responseValidator.assertStatus(response, CODE_200);

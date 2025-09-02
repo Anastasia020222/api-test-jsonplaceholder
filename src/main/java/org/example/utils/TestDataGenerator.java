@@ -10,6 +10,7 @@ public class TestDataGenerator {
 
     private static final Random random = new Random();
     private static final int INVALID_ID = -1;
+    private static final int VALID_USER_ID = 1;
     private static final String EMPTY_STRING = "";
 
     public static Post createValidPost() {
@@ -20,10 +21,10 @@ public class TestDataGenerator {
                 .build();
     }
 
-    public static Post createPostWithId2() {
+    public static Post createPostWithId(Integer id) {
         return Post.builder()
-                .id(2)
-                .userId(1)
+                .id(id)
+                .userId(VALID_USER_ID)
                 .title("qui est esse")
                 .body(BODY_USER_TWO)
                 .build();
@@ -32,14 +33,15 @@ public class TestDataGenerator {
     public static Post createPostWithInvalidId() {
         return Post.builder()
                 .id(INVALID_ID)
+                .userId(VALID_USER_ID)
                 .title("Valid title test")
                 .body("Body without title")
                 .build();
     }
 
-    public static Post partialUpdatePostTitle() {
+    public static Post partialUpdatePostTitle(Integer id) {
         return Post.builder()
-                .id(2)
+                .id(id)
                 .title("Valid title test")
                 .build();
     }

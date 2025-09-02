@@ -9,6 +9,6 @@ public class ExtensionManager implements BeforeAllCallback {
 
     @Override
     public void beforeAll(ExtensionContext context) throws Exception {
-        RestAssured.filters(new AllureRestAssured());
+        RestAssured.replaceFiltersWith(new AllureRestAssured());
     }
 }

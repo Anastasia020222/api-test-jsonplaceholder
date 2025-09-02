@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.util.List;
 
 import static org.example.utils.TestDataConstant.*;
-import static org.example.utils.TestDataGenerator.createPostWithId2;
+import static org.example.utils.TestDataGenerator.createPostWithId;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(ExtensionManager.class)
@@ -29,7 +29,7 @@ public class GetPostTest {
         responseValidator.assertJsonSchema(response, JSON_LIST_SCHEMA);
 
         List<Post> list = response.jsonPath().getList("", Post.class);
-        assertEquals(EXPECTED_POST_COUNT, list.size(), "Размер списка не равен 100");
+        assertEquals(EXPECTED_POST_COUNT, list.size(), "Размер списка не равен " + EXPECTED_POST_COUNT);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class GetPostTest {
         responseValidator.assertStatus(response, CODE_200);
         responseValidator.assertJsonSchema(response, JSON_SCHEMA);
         Post post = response.as(Post.class);
-        responseValidator.validatePostFields(post, createPostWithId2());
+        responseValidator.validatePostFields(post, createPostWithId(2));
     }
 
     @Test
